@@ -1129,3 +1129,6 @@ LogConfig: CVar [[LogNamedEventFilters:Frame *]] deferred - dummy variable creat
 
 [2024.02.01-16.46.04:681][  1]Running Python start-up script 'C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Animation/ControlRig/Content/Python/init_unreal.py': 0.033146 secs
 [2024.02.01-16.46.04:871][  2]LogD3D12RHI: Cannot end block when stack is empty
+[2024.02.01-16.46.14:562][ 82]LogSlate: Window 'Content Browser' being destroyed
+[2024.02.01-16.46.14:571][ 82]LogSlate: Window 'Content Browser' being destroyed
+[2024.02.01-16.47.57:064][412]LogDerivedDataCache: C:/Users/samantha.shomo/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.039 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 390 files in 713 folders with total size 12 MiB.
