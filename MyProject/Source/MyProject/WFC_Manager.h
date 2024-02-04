@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "WFC_Manager.generated.h"
+#include "WFC_Region.h"
+#include "WFC_Tile.h"
 
 UCLASS()
 class MYPROJECT_API AWFC_Manager : public AActor
@@ -16,11 +18,19 @@ public:
 	AWFC_Manager();
 
 protected:
+	//Member Functions
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	//Member Variables
+	TSharedPtr<AWFC_Region> mWFCRegion;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	TSet<TSharedPtr<AWFC_Tile>> mWFCTiles;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void Collapse(AWFC_Region* region);
 
 };

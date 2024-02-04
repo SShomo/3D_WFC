@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "WFC_Node.generated.h"
+#include "WFC_Tile.h"
 
 UCLASS()
 class MYPROJECT_API AWFC_Node : public AActor
@@ -19,8 +20,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	bool mIsCollapsed;
+	TSet<TSharedPtr<AWFC_Tile>> mTiles;
+	TSet<TSharedPtr<AWFC_Node>> mNeighbors;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	bool GetIsCollapsed();
+	float GetEntropy();
+	void Collapse();
+	void Propogate(TSharedPtr<AWFC_Node> callingNode);
 };
