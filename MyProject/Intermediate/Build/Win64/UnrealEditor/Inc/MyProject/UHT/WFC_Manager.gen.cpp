@@ -74,15 +74,15 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Manager() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AWFC_Manager);
 	AWFC_Manager::~AWFC_Manager() {}
-	struct Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_AWFC_Manager, AWFC_Manager::StaticClass, TEXT("AWFC_Manager"), &Z_Registration_Info_UClass_AWFC_Manager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Manager), 1731774091U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_2395935275(TEXT("/Script/MyProject"),
-		Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_2395935275(TEXT("/Script/MyProject"),
+		Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
