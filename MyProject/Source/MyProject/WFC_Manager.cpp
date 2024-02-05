@@ -25,3 +25,7 @@ void AWFC_Manager::Tick(float DeltaTime)
 
 }
 
+void AWFC_Manager::Collapse(AWFC_Region* region)
+{
+	region->Collapse();
+}

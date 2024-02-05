@@ -29,6 +29,25 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseTile")
+	class USceneComponent* RootScene;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseTile")
+	class UStaticMeshComponent* Mesh;
+
+	UPROPERTY(EditAnywhere)
+	int UpSocket;
+	UPROPERTY(EditAnywhere)
+	int DownSocket;
+	UPROPERTY(EditAnywhere)
+	int LeftSocket;
+	UPROPERTY(EditAnywhere)
+	int RightSocket;
+	UPROPERTY(EditAnywhere)
+	int FrontSocket;
+	UPROPERTY(EditAnywhere)
+	int BackSocket;
+
 	TMap<Direction, int> mSockets;
 
 public:	

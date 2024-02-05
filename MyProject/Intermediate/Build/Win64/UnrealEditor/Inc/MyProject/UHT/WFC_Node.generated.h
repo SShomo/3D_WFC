@@ -58,7 +58,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> MYPROJECT_API UClass* StaticClass<class AWFC_Node>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Node_h
+#define CURRENT_FILE_ID FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Node_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

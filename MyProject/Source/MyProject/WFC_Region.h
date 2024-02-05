@@ -21,6 +21,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
+	class USceneComponent* RootScene;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
+	class UStaticMeshComponent* Mesh;
+
 	void AddTile(TSharedPtr<AWFC_Tile> tile);
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
