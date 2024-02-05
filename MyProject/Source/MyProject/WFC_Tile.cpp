@@ -25,3 +25,26 @@ void AWFC_Tile::Tick(float DeltaTime)
 
 }
 
+TMap<Direction, int> AWFC_Tile::GetSockets()
+{
+	return mSockets;
+}
+
+bool AWFC_Tile::HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile)
+{
+	bool output = false;
+	TMap<Direction, int> tileSockets = tile.Get()->GetSockets();
+	for (auto& socket1 : tileSockets)
+	{
+		for (auto& socket2 : mSockets)
+		{
+			if (socket1.Value == socket2.Value)
+			{
+				output = true;
+				break;
+			}
+		}
+	}
+	return output;
+}
+
