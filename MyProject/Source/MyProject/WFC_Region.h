@@ -4,9 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "WFC_Region.generated.h"
 #include "WFC_Node.h"
 #include "WFC_Tile.h"
+#include "WFC_Region.generated.h"
 
 UCLASS()
 class MYPROJECT_API AWFC_Region : public AActor

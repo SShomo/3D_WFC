@@ -38,7 +38,7 @@ bool AWFC_Tile::HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile)
 	{
 		for (auto& socket2 : mSockets)
 		{
-			if (socket1.Value = socket2.Value)
+			if (socket1.Value == socket2.Value)
 			{
 				output = true;
 				break;

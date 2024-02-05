@@ -54,9 +54,10 @@ void AWFC_Node::Propogate(TSharedPtr<AWFC_Node> callingNode)
 		//reduce mTiles to only tiles that could potentially socket-match tiles from  callingNode
 
 		//Call propogate with this as the callingNode on each of the neighbor nodes
+			//This might not be necessary. We should just have propogate called on the neighbors, instead of recursively calling the whole region of nodes.
 		for (auto& node : mNeighbors)
 		{
-			node.Get()->Propogate();
+			//node.Get()->Propogate();
 		}
 	}
 	return;

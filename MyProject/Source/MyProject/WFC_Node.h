@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "WFC_Node.generated.h"
 #include "WFC_Tile.h"
+#include "WFC_Node.generated.h"
 
 UCLASS()
 class MYPROJECT_API AWFC_Node : public AActor

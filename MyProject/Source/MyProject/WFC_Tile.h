@@ -12,8 +12,8 @@ enum Direction
 	Down,
 	Left,
 	Right,
-	Forward,
-	Backward,
+	Front,
+	Back,
 };
 
 UCLASS()

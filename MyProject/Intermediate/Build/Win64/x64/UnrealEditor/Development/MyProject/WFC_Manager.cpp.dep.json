@@ -7,6 +7,12 @@
         "Includes": [
             "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\myproject\\definitions.myproject.h",
             "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\source\\myproject\\wfc_manager.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\source\\myproject\\wfc_region.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\source\\myproject\\wfc_node.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\source\\myproject\\wfc_tile.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject\\uht\\wfc_tile.generated.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject\\uht\\wfc_node.generated.h",
+            "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject\\uht\\wfc_region.generated.h",
             "e:\\users\\will\\code\\github\\3d_wfc\\myproject\\intermediate\\build\\win64\\unrealeditor\\inc\\myproject\\uht\\wfc_manager.generated.h"
         ],
         "ImportedModules": [],
