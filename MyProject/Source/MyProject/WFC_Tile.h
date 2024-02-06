@@ -59,4 +59,6 @@ public:
 	TMap<Direction, int> GetSockets();
 
 	bool HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile);
+
+	bool Directionality(Direction tile,Direction second);
 };
