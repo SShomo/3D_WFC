@@ -81,7 +81,7 @@ void AWFC_Region::Collapse()
 	{
 		TSharedPtr<AWFC_Node> node = GetRandomNode(GetLowestEntropyNodes());
 		node.Get()->Collapse();
-		node.Get()->Propogate(node);
+		node.Get()->Propogate();
 	}
 	return;
 }
@@ -93,6 +93,14 @@ void AWFC_Region::SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
 		AddTile(tile);
 	}
 }
+void AWFC_Region::SetPossibleTiles(TArray<AWFC_Tile*> tiles)
+{
+	for (auto& tile : tiles)
+	{
+		AddTile(MakeShareable(tile));
+	}
+}
+
 
 bool AWFC_Region::IsCollapsed()
 {

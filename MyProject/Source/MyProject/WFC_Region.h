@@ -43,6 +43,7 @@ public:
 
 	void Collapse();
 	void SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
+	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
 
 	bool IsCollapsed();
 };

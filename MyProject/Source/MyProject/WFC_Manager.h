@@ -24,7 +24,9 @@ protected:
 
 	//Member Variables
 	TSharedPtr<AWFC_Region> mWFCRegion;
-	TSet<TSharedPtr<AWFC_Tile>> mWFCTiles;
+
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
+	TArray<AWFC_Tile*> mWFCTiles;
 
 public:	
 	// Called every frame
@@ -32,4 +34,6 @@ public:
 
 	void Collapse(AWFC_Region* region);
 
+	UFUNCTION(BlueprintCallable)
+	void SetTiles(TArray<AWFC_Tile*> tiles);
 };

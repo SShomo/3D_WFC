@@ -5,6 +5,9 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_0.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_1.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Manager.uasset",
 				"C:/Users/samantha.shomo/Documents/Unreal Projects/MyProject/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
 			]
 		}

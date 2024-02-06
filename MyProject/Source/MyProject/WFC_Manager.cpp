@@ -16,6 +16,8 @@ void AWFC_Manager::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	SetTiles(mWFCTiles);
+	Collapse(mWFCRegion.Get());
 }
 
 // Called every frame
@@ -28,4 +30,9 @@ void AWFC_Manager::Tick(float DeltaTime)
 void AWFC_Manager::Collapse(AWFC_Region* region)
 {
 	region->Collapse();
+}
+
+void AWFC_Manager::SetTiles(TArray<AWFC_Tile*> tiles)
+{
+	mWFCRegion.Get()->SetPossibleTiles(mWFCTiles);
 }

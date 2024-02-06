@@ -19,6 +19,9 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void ReduceToCompatibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
+	void Propogate(AWFC_Node* collapsingNode);
+
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
 	class USceneComponent* RootScene;
@@ -27,6 +30,7 @@ protected:
 	class UStaticMeshComponent* Mesh;
 
 	bool mIsCollapsed;
+
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNeighbors;
 
@@ -36,6 +40,7 @@ public:
 
 	bool GetIsCollapsed();
 	float GetEntropy();
+	TSet<TSharedPtr<AWFC_Tile>> GetTiles();
 	void Collapse();
-	void Propogate(TSharedPtr<AWFC_Node> callingNode);
+	void Propogate();
 };

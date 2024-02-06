@@ -48,6 +48,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	int BackSocket;
 
+	void MapSockets();
+
 	TMap<Direction, int> mSockets;
 
 public:	

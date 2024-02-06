@@ -54,6 +54,12 @@
     <ClInclude Include="..\..\Source\MyProject\WFC_Node.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\WFC_Rectangular_Region.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\WFC_Rectangular_Region.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MyProject\WFC_Region.cpp">
       <Filter>Source\MyProject</Filter>
     </ClCompile>

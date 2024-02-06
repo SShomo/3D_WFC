@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AWFC_Tile;
 #ifdef MYPROJECT_WFC_Manager_generated_h
 #error "WFC_Manager.generated.h already included, missing '#pragma once' in WFC_Manager.h"
 #endif
@@ -17,7 +18,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_SPARSE_DATA
 #define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execSetTiles);
+
+
 #define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_ACCESSORS
 #define FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Manager_h_14_INCLASS_NO_PURE_DECLS \
 private: \

@@ -24,6 +24,20 @@ void AWFC_Node::BeginPlay()
 	
 }
 
+void AWFC_Node::ReduceToCompatibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
+{
+	for (auto& tile1 : tiles)
+	{
+		for (auto& tile2 : mTiles)
+		{
+			if (!tile1.Get()->HaveMatchingSocket(tile2)) //no matching socket, discard
+			{
+				mTiles.Remove(tile2);
+			}
+		}
+	}
+}
+
 // Called every frame
 void AWFC_Node::Tick(float DeltaTime)
 {
@@ -41,6 +55,11 @@ float AWFC_Node::GetEntropy()
 	return mTiles.Num();
 }
 
+TSet<TSharedPtr<AWFC_Tile>> AWFC_Node::GetTiles()
+{
+	return mTiles;
+}
+
 void AWFC_Node::Collapse()
 {
 	int tileNum = FMath::RandRange(0, mTiles.Num()-1);
@@ -51,20 +70,16 @@ void AWFC_Node::Collapse()
 	return;
 }
 
-void AWFC_Node::Propogate(TSharedPtr<AWFC_Node> callingNode)
+void AWFC_Node::Propogate()
 {
-	if (!mIsCollapsed)
+	for (auto& node : mNeighbors)
 	{
-		//TODO: Fill this section out.
-
-		//reduce mTiles to only tiles that could potentially socket-match tiles from  callingNode
-
-		//Call propogate with this as the callingNode on each of the neighbor nodes
-			//This might not be necessary. We should just have propogate called on the neighbors, instead of recursively calling the whole region of nodes.
-		for (auto& node : mNeighbors)
-		{
-			//node.Get()->Propogate();
-		}
+		node.Get()->Propogate(this);
 	}
-	return;
+}
+
+void AWFC_Node::Propogate(AWFC_Node* collapsingNode)
+{
+	TSet<TSharedPtr<AWFC_Tile>> tile = collapsingNode->GetTiles();
+	this->ReduceToCompatibleTiles(tile);
 }
