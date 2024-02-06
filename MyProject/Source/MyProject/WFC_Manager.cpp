@@ -32,7 +32,11 @@ void AWFC_Manager::Collapse(AWFC_Region* region)
 	region->Collapse();
 }
 
-void AWFC_Manager::SetTiles(TArray<AWFC_Tile*> tiles)
+void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 {
-	mWFCRegion.Get()->SetPossibleTiles(mWFCTiles);
+	for (auto& tile : tiles)
+	{
+		AWFC_Tile* temp = Cast<AWFC_Tile>(tile.Get());
+		mWFCRegion.Get()->AddTile(MakeShareable(temp));
+	}
 }

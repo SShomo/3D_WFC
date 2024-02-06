@@ -27,7 +27,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
 	class UStaticMeshComponent* Mesh;
 
-	void AddTile(TSharedPtr<AWFC_Tile> tile);
+	
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNodes;
@@ -44,6 +44,8 @@ public:
 	void Collapse();
 	void SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
 	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
+
+	void AddTile(TSharedPtr<AWFC_Tile> tile);
 
 	bool IsCollapsed();
 };

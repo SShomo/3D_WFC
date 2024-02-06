@@ -26,7 +26,7 @@ protected:
 	TSharedPtr<AWFC_Region> mWFCRegion;
 
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
-	TArray<AWFC_Tile*> mWFCTiles;
+	TArray<TSubclassOf<AWFC_Tile>> mWFCTiles;
 
 public:	
 	// Called every frame
@@ -35,5 +35,5 @@ public:
 	void Collapse(AWFC_Region* region);
 
 	UFUNCTION(BlueprintCallable)
-	void SetTiles(TArray<AWFC_Tile*> tiles);
+	void SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles);
 };
