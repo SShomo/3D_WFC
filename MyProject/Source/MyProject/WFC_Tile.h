@@ -58,6 +58,8 @@ public:
 
 	TMap<Direction, int> GetSockets();
 
+	UStaticMeshComponent* GetMesh() { return Mesh; }
+
 	bool HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile);
 
 	bool Directionality(Direction tile,Direction second);

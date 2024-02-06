@@ -73,7 +73,8 @@ void AWFC_Node::Collapse()
 	int tileNum = FMath::RandRange(0, mTiles.Num()-1);
 
 	//TODO: Set WFC_Node Mesh to whatever element tileNum is
-
+	FSetElementId numID = numID.FromInteger(tileNum);
+	Mesh = mTiles[numID].Get()->GetMesh();
 	mIsCollapsed = true;
 	return;
 }
