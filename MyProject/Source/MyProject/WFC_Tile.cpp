@@ -60,13 +60,26 @@ bool AWFC_Tile::HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile)
 			{
 				continue;
 			}
-			if (socket1.Value == socket2.Value)
+			if (socket1.Value == socket2.Value && Directionality(socket1.Key, socket2.Key))
 			{
 				output = true;
 				break;
 			}
 		}
-	}
+	}	
 	return output;
 }
+
+bool AWFC_Tile::Directionality(Direction first, Direction second)
+{
+	bool facingCorrectWay = false;
+	if ((first == Up && second == Down) || (second == Up && first == Down))
+		return true;
+	if ((first == Left && second == Right) || (second == Right && first == Left))
+		return true;
+	if ((first == Front && second == Back) || (second == Back && first == Front))
+		return true;
+	return false;
+}
+
 

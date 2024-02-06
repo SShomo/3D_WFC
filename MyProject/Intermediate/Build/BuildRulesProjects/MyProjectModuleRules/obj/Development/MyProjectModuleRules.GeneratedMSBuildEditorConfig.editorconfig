@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyProjectModuleRules
-build_property.ProjectDir = E:\Users\Will\Code\GitHub\3D_WFC\MyProject\Intermediate\Build\BuildRulesProjects\MyProjectModuleRules\
+build_property.ProjectDir = C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\BuildRulesProjects\MyProjectModuleRules\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
