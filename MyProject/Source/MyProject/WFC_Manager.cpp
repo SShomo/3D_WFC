@@ -17,7 +17,7 @@ void AWFC_Manager::BeginPlay()
 	Super::BeginPlay();
 	
 	SetTiles(mWFCTiles);
-	Collapse(mWFCRegion.Get());
+	Collapse(Cast<AWFC_Region>(mWFCRegion.Get()));
 }
 
 // Called every frame
@@ -37,6 +37,6 @@ void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 	for (auto& tile : tiles)
 	{
 		AWFC_Tile* temp = Cast<AWFC_Tile>(tile.Get());
-		mWFCRegion.Get()->AddTile(MakeShareable(temp));
+		Cast<AWFC_Region>(mWFCRegion.Get())->AddTile(MakeShareable(temp));
 	}
 }

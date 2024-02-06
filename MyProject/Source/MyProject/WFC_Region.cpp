@@ -15,6 +15,8 @@ AWFC_Region::AWFC_Region()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	//Build nodes and set their locations
+	BuildNodes();
 }
 
 // Called when the game starts or when spawned
@@ -65,6 +67,12 @@ TSet<TSharedPtr<AWFC_Node>> AWFC_Region::GetLowestEntropyNodes()
 		}
 	}
 	return lowestEntropyNodes;
+}
+
+void AWFC_Region::BuildNodes()
+{
+	//TODO: This function is supposed to create a number of new node objects equal to x * y, and assign a position to each node in worldspace
+	return;
 }
 
 // Called every frame

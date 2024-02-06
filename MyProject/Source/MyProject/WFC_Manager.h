@@ -23,7 +23,8 @@ protected:
 	virtual void BeginPlay() override;
 
 	//Member Variables
-	TSharedPtr<AWFC_Region> mWFCRegion;
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
+	TSubclassOf<AWFC_Region> mWFCRegion;
 
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
 	TArray<TSubclassOf<AWFC_Tile>> mWFCTiles;

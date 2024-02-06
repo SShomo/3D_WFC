@@ -60,6 +60,14 @@ TSet<TSharedPtr<AWFC_Tile>> AWFC_Node::GetTiles()
 	return mTiles;
 }
 
+void AWFC_Node::SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
+{
+	for (auto& tile : tiles)
+	{
+		mTiles.Add(tile);
+	}
+}
+
 void AWFC_Node::Collapse()
 {
 	int tileNum = FMath::RandRange(0, mTiles.Num()-1);

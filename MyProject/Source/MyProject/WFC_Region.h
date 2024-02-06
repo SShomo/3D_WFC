@@ -21,13 +21,17 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
 	class USceneComponent* RootScene;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
 	class UStaticMeshComponent* Mesh;
 
-	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
+	int x;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
+	int y;
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNodes;
@@ -36,6 +40,8 @@ protected:
 
 	float GetLowestEntropyValue();
 	TSet<TSharedPtr<AWFC_Node>> GetLowestEntropyNodes();
+
+	void BuildNodes();
 
 public:	
 	// Called every frame

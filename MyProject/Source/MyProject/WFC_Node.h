@@ -41,6 +41,7 @@ public:
 	bool GetIsCollapsed();
 	float GetEntropy();
 	TSet<TSharedPtr<AWFC_Tile>> GetTiles();
+	void SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
 	void Collapse();
 	void Propogate();
 };
