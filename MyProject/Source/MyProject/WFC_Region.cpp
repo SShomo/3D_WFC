@@ -71,7 +71,28 @@ TSet<TSharedPtr<AWFC_Node>> AWFC_Region::GetLowestEntropyNodes()
 
 void AWFC_Region::BuildNodes()
 {
+	UWorld* World = GetWorld();
+	FTransform transform;
+
 	//TODO: This function is supposed to create a number of new node objects equal to x * y, and assign a position to each node in worldspace
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			FVector position;
+
+			position.X = 500 * i;
+			position.Y = 500 * j;
+			position.Z = 0;
+
+			transform.SetLocation(position);
+
+			AWFC_Node* temp = World->SpawnActor<AWFC_Node>();
+
+			temp->SetActorLocation(transform.GetLocation());
+			temp->SetActorRotation(transform.GetRotation());
+		}
+	}
 	return;
 }
 

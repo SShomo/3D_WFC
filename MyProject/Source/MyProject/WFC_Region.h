@@ -27,10 +27,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
 	class UStaticMeshComponent* Mesh;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
 	int x;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
 	int y;
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
