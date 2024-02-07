@@ -1122,3 +1122,23 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 
 [2024.02.06-23.42.05:990][  1]Running Python start-up script 'C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Animation/ControlRig/Content/Python/init_unreal.py': 0.082030 secs
 [2024.02.06-23.42.06:029][  3]LogD3D12RHI: Cannot end block when stack is empty
+[2024.02.06-23.43.55:722][332]LogDerivedDataCache: C:/Users/samantha.shomo/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:00.053 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 395 files in 723 folders with total size 12 MiB.
+[2024.02.06-23.44.25:776][421]LogSlate: Took 0.002406 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2024.02.06-23.44.40:272][112]LogTexture: Display: Building textures: /Game/PolygonCity/Textures/T_PolygonCity_Emissive_01.T_PolygonCity_Emissive_01 (TFO_AutoDXT, 1024x1024 x1x1x1) (Required Memory Estimate: 101.645823 MB), EncodeSpeed: Fast
+[2024.02.06-23.44.40:272][112]LogTexture: Display: Building textures: /Game/PolygonCity/Textures/T_PolygonCity_Roughness.T_PolygonCity_Roughness (TFO_AutoDXT, 1024x1024 x1x1x1) (Required Memory Estimate: 101.645823 MB), EncodeSpeed: Fast
+[2024.02.06-23.44.40:274][112]LogTexture: Display: Building textures: /Game/PolygonCity/Textures/T_PolygonCity_Normal_01.T_PolygonCity_Normal_01 (TFO_BC5, 1024x1024 x1x1x1) (Required Memory Estimate: 168.562488 MB), EncodeSpeed: Fast
+[2024.02.06-23.44.40:277][112]LogTexture: Display: Building textures: /Game/PolygonCity/Textures/T_PolygonCity_Metallic.T_PolygonCity_Metallic (TFO_AutoDXT, 1024x1024 x1x1x1) (Required Memory Estimate: 101.645823 MB), EncodeSpeed: Fast
+[2024.02.06-23.44.40:280][112]LogTexture: Display: Building textures: /Game/PolygonCity/Textures/T_PolygonCity_01_A.T_PolygonCity_01_A (TFO_AutoDXT, 1024x1024 x1x1x1) (Required Memory Estimate: 101.645823 MB), EncodeSpeed: Fast
+[2024.02.06-23.44.40:289][112]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/LevelPrototyping/WFC_Assets/WFC_Tile_1.WFC_Tile_1
+[2024.02.06-23.44.40:289][112]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.02.06-23.44.40:290][112]LogChaos: FPhysicsSolverBase::AsyncDt:-1.000000
+[2024.02.06-23.44.40:301][112]LogSlate: Warning: The command 'BlueprintEditorSpawnNodes.AddActorRefAction->CommandInfo' has the same default chord as 'BlueprintEditorSpawnNodes.(Class=/Script/BlueprintGraph.K2Node_Knot Key=R Shift=false Ctrl=false Alt=false)' [R]
+[2024.02.06-23.44.40:330][112]LogStaticMesh: Display: Building static mesh SM_Env_GrassPath_Corner_01...
+[2024.02.06-23.44.40:344][112]LogStaticMesh: Built static mesh [0.01s] /Game/PolygonCity/Meshes/Environments/SM_Env_GrassPath_Corner_01.SM_Env_GrassPath_Corner_01
+[2024.02.06-23.44.40:576][112]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.02.06-23.44.40:831][113]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.02.06-23.44.42:548][263]LogWorldSubsystemInput: UEnhancedInputDeveloperSettings::bEnableWorldSubsystem is false, the world subsystem will not be created!
+[2024.02.06-23.45.22:355][497]LogSlate: Window 'WFC_Tile_1' being destroyed
+[2024.02.06-23.45.22:361][497]LogSlate: Window 'WFC_Tile_1' being destroyed
+[2024.02.06-23.45.22:366][497]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2024.02.06-23.45.22:366][497]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
