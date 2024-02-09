@@ -8,6 +8,7 @@
 #include "WFC_Tile.h"
 #include "WFC_Manager.generated.h"
 
+
 UCLASS()
 class MYPROJECT_API AWFC_Manager : public AActor
 {

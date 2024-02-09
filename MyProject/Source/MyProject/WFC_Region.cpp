@@ -15,6 +15,9 @@ AWFC_Region::AWFC_Region()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	mTiles = TSet<TSharedPtr<AWFC_Tile>>();
+	mNodes = TSet<TSharedPtr<AWFC_Node>>();
+
 	//Build nodes and set their locations
 	BuildNodes();
 }
@@ -23,7 +26,6 @@ AWFC_Region::AWFC_Region()
 void AWFC_Region::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void AWFC_Region::AddTile(TSharedPtr<AWFC_Tile> tile)

@@ -83,14 +83,14 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 		{ "ModuleRelativePath", "WFC_Region.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_x = { "x", nullptr, (EPropertyFlags)0x0020080000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, x), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_x = { "x", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, x), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData[] = {
 		{ "Category", "WaveFunctionCollapseRegion" },
 		{ "ModuleRelativePath", "WFC_Region.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_y = { "y", nullptr, (EPropertyFlags)0x0020080000020015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, y), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_y = { "y", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, y), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWFC_Region_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_RootScene,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_Mesh,
@@ -135,9 +135,9 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWFC_Region, AWFC_Region::StaticClass, TEXT("AWFC_Region"), &Z_Registration_Info_UClass_AWFC_Region, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Region), 3663666573U) },
+		{ Z_Construct_UClass_AWFC_Region, AWFC_Region::StaticClass, TEXT("AWFC_Region"), &Z_Registration_Info_UClass_AWFC_Region, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Region), 2874080926U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_2511227449(TEXT("/Script/MyProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_1386127236(TEXT("/Script/MyProject"),
 		Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

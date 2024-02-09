@@ -8,7 +8,6 @@ AWFC_Manager::AWFC_Manager()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -17,7 +16,7 @@ void AWFC_Manager::BeginPlay()
 	Super::BeginPlay();
 	
 	SetTiles(mWFCTiles);
-	Collapse(Cast<AWFC_Region>(mWFCRegion.Get()));
+	//Cast<AWFC_Region>(mWFCRegion)->Collapse();
 }
 
 // Called every frame
@@ -36,7 +35,10 @@ void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 {
 	for (auto& tile : tiles)
 	{
-		AWFC_Tile* temp = Cast<AWFC_Tile>(tile.Get());
-		Cast<AWFC_Region>(mWFCRegion.Get())->AddTile(MakeShareable(temp));
+		/*AWFC_Tile* temp = Cast<AWFC_Tile>(tile.Get());
+		Cast<AWFC_Region>(mWFCRegion.Get())->AddTile(MakeShareable(temp));*/
+		TSubclassOf<AWFC_Tile> temp = tile;
+		mWFCRegion.GetDefaultObject()->AddTile(MakeShareable(temp.GetDefaultObject()));
 	}
 }
+
