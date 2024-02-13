@@ -51,5 +51,6 @@ public:
 	void SetNeighbor(TSharedPtr<AWFC_Node> node);
 	void SetNeighbors(TSet<TSharedPtr<AWFC_Node>> nodes);
 	void Collapse();
+	void RemoveSlack();
 	void Propogate();
 };

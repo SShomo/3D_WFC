@@ -155,6 +155,7 @@ void AWFC_Region::BuildNodes()
 	for (auto& node : mNodes)
 	{
 		node.Get()->SetNeighbors(GetNeighbors(node.Get()->GetGridPosition()));
+		node.Get()->RemoveSlack();
 	}
 	return;
 }
@@ -180,10 +181,6 @@ TSharedPtr<AWFC_Node> AWFC_Region::GetNodeAtPosition(FIntVector3 gridPosition)
 	{
 		if (node.Get()->GetGridPosition() == gridPosition) output = node;
 	}
-	if (ShouldBuildNode(gridPosition))
-	{
-		output = BuildNode(gridPosition);
-	}
 	return output;
 }
 
@@ -201,11 +198,13 @@ void AWFC_Region::Collapse()
 
 void AWFC_Region::SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
 {
-	for (auto& tile : tiles)
+	mTiles = tiles;
+	for (auto& node : mNodes)
 	{
-		AddTile(tile);
+		node.Get()->SetTiles(tiles);
 	}
 }
+
 void AWFC_Region::SetPossibleTiles(TArray<AWFC_Tile*> tiles)
 {
 	for (auto& tile : tiles)
@@ -220,7 +219,11 @@ bool AWFC_Region::IsCollapsed()
 	bool output = true;
 	for (auto& node : mNodes)
 	{
-		output = output && node.Get()->GetIsCollapsed();
+		if (!node.Get()->GetIsCollapsed())
+		{
+			output = false;
+			break;
+		}
 	}
 	return output;
 }

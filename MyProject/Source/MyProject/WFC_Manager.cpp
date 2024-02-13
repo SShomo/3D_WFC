@@ -15,10 +15,17 @@ void AWFC_Manager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	mWFCRegion->SetRegionDimensions(mXSize, mYSize, mZSize);
-	mWFCRegion->BuildNodes();
-	SetTiles(mWFCTiles);
-	Collapse(mWFCRegion);
+	if (mWFCRegion)
+	{
+		mWFCRegion->SetRegionDimensions(mXSize, mYSize, mZSize);
+		mWFCRegion->BuildNodes();
+		SetTiles(mWFCTiles);
+		Collapse(mWFCRegion);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("RegionClass is nullptr"));
+	}
 }
 
 // Called every frame
@@ -40,12 +47,13 @@ void AWFC_Manager::Collapse(TSubclassOf<AWFC_Region> region)
 
 void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 {
+	TSet<TSharedPtr<AWFC_Tile>> tempSet;
+
 	for (auto& tile : tiles)
 	{
-		/*AWFC_Tile* temp = Cast<AWFC_Tile>(tile.Get());
-		Cast<AWFC_Region>(mWFCRegion.Get())->AddTile(MakeShareable(temp));*/
-		TSubclassOf<AWFC_Tile> temp = tile;
-		mWFCRegion->AddTile(MakeShareable(temp.GetDefaultObject()));
+		TSubclassOf<AWFC_Tile> tempTile = tile;
+		tempSet.Add(MakeShareable(tempTile.GetDefaultObject()));
 	}
+	mWFCRegion->SetPossibleTiles(tempSet);
 }
 

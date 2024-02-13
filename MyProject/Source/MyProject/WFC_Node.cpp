@@ -75,10 +75,7 @@ TSet<TSharedPtr<AWFC_Tile>> AWFC_Node::GetTiles()
 
 void AWFC_Node::SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
 {
-	for (auto& tile : tiles)
-	{
-		mTiles.Add(tile);
-	}
+	mTiles = tiles;
 }
 
 void AWFC_Node::SetNeighbor(TSharedPtr<AWFC_Node> node)
@@ -100,6 +97,16 @@ void AWFC_Node::Collapse()
 	Mesh = mTiles[numID].Get()->GetMesh();
 	mIsCollapsed = true;
 	return;
+}
+
+void AWFC_Node::RemoveSlack()
+{
+	TSet<TSharedPtr<AWFC_Node>> temp;
+	for (auto& node : mNeighbors)
+	{
+		if (node.Get() != NULL) temp.Add(node);
+	}
+	mNeighbors = temp;
 }
 
 void AWFC_Node::Propogate()
