@@ -107,7 +107,8 @@ void AWFC_Node::Collapse()
 
 	//TODO: Set WFC_Node Mesh to whatever element tileNum is
 	FSetElementId numID = numID.FromInteger(tileNum);
-	Mesh = mTiles[numID].Get()->GetMesh();
+	UStaticMesh* temp = mTiles[numID].Get()->GetMesh()->GetStaticMesh();
+	Mesh->SetStaticMesh(temp);
 	mIsCollapsed = true;
 	return;
 }
