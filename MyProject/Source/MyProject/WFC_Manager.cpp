@@ -17,7 +17,7 @@ void AWFC_Manager::BeginPlay()
 	
 	if (mWFCRegion)
 	{
-		mWFCRegion->SetRegionDimensionsAndOffset(mXSize, mYSize, mZSize, mOffset);
+		mWFCRegion->SetRegionDimensionsAndOffset(mDimensions.X, mDimensions.Y, mDimensions.Z, mOffset);
 		mWFCRegion->BuildNodes();
 		SetTiles(mWFCTiles);
 		Collapse(mWFCRegion);

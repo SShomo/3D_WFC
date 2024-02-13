@@ -73,6 +73,7 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Tile() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Tile_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Tile_Statics::Class_MetaDataParams[] = {
+		{ "ClassGroupNames", "Wave_Function_Collapse" },
 		{ "IncludePath", "WFC_Tile.h" },
 		{ "ModuleRelativePath", "WFC_Tile.h" },
 	};
@@ -178,15 +179,15 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Tile() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AWFC_Tile);
 	AWFC_Tile::~AWFC_Tile() {}
-	struct Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWFC_Tile, AWFC_Tile::StaticClass, TEXT("AWFC_Tile"), &Z_Registration_Info_UClass_AWFC_Tile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Tile), 2272963911U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AWFC_Tile, AWFC_Tile::StaticClass, TEXT("AWFC_Tile"), &Z_Registration_Info_UClass_AWFC_Tile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Tile), 3972524723U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_2314482521(TEXT("/Script/MyProject"),
-		Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_2608830136(TEXT("/Script/MyProject"),
+		Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

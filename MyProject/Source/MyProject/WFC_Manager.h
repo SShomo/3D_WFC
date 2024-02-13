@@ -24,16 +24,13 @@ protected:
 	virtual void BeginPlay() override;
 
 	//Member Variables
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
-	int mXSize;
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
-	int mYSize;
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
-	int mZSize;
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
+	FIntVector mDimensions;
+
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
 	int mOffset;
 
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
 	AWFC_Region* mWFCRegion;
 
 	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")

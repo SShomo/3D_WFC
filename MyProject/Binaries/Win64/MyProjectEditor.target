@@ -2634,6 +2634,14 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Experimental/WaveFunctionCollapse/Binaries/Win64/UnrealEditor-WaveFunctionCollapse.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Experimental/WaveFunctionCollapse/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/FX/Niagara/Binaries/Win64/UnrealEditor-Niagara.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -24481,6 +24489,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Experimental/ToolPresets/ToolPresets.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Experimental/WaveFunctionCollapse/WaveFunctionCollapse.uplugin",
 			"Type": "UFS"
 		},
 		{

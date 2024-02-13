@@ -129,12 +129,14 @@ TSharedPtr<AWFC_Node> AWFC_Region::BuildNode(FIntVector3 gridPosition)
 	position.Y = mOffset * gridPosition.Y;
 	position.Z = mOffset * gridPosition.Z;
 
-	transform.SetLocation(position);
+	transform.SetLocation(position + this->GetActorTransform().GetLocation());
+
+	;
 
 	AWFC_Node* temp = World->SpawnActor<AWFC_Node>();
 	output = MakeShareable(temp);
-
 	temp->SetActorTransform(transform);
+	//temp->SetActorRelativeTransform(transform + this->GetActorTransform());
 	temp->SetGridPosition(gridPosition.X, gridPosition.Y, gridPosition.Z);
 
 	mNodes.Add(output);

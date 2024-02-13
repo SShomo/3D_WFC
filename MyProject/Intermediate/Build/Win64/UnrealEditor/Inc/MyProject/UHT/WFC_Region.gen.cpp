@@ -39,13 +39,21 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_x_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mXSize_MetaData[];
 #endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_x;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_mXSize;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_y_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mYSize_MetaData[];
 #endif
-		static const UECodeGen_Private::FIntPropertyParams NewProp_y;
+		static const UECodeGen_Private::FIntPropertyParams NewProp_mYSize;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mZSize_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_mZSize;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mOffset_MetaData[];
+#endif
+		static const UECodeGen_Private::FIntPropertyParams NewProp_mOffset;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -57,6 +65,7 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::Class_MetaDataParams[] = {
+		{ "ClassGroupNames", "Wave_Function_Collapse" },
 		{ "IncludePath", "WFC_Region.h" },
 		{ "ModuleRelativePath", "WFC_Region.h" },
 	};
@@ -78,24 +87,40 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_Mesh_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_mXSize_MetaData[] = {
 		{ "Category", "WaveFunctionCollapseRegion" },
 		{ "ModuleRelativePath", "WFC_Region.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_x = { "x", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, x), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_x_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_mXSize = { "mXSize", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, mXSize), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_mXSize_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_mXSize_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_mYSize_MetaData[] = {
 		{ "Category", "WaveFunctionCollapseRegion" },
 		{ "ModuleRelativePath", "WFC_Region.h" },
 	};
 #endif
-	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_y = { "y", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, y), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_y_MetaData) };
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_mYSize = { "mYSize", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, mYSize), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_mYSize_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_mYSize_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_mZSize_MetaData[] = {
+		{ "Category", "WaveFunctionCollapseRegion" },
+		{ "ModuleRelativePath", "WFC_Region.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_mZSize = { "mZSize", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, mZSize), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_mZSize_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_mZSize_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AWFC_Region_Statics::NewProp_mOffset_MetaData[] = {
+		{ "Category", "WaveFunctionCollapseRegion" },
+		{ "ModuleRelativePath", "WFC_Region.h" },
+	};
+#endif
+	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AWFC_Region_Statics::NewProp_mOffset = { "mOffset", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWFC_Region, mOffset), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AWFC_Region_Statics::NewProp_mOffset_MetaData), Z_Construct_UClass_AWFC_Region_Statics::NewProp_mOffset_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWFC_Region_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_RootScene,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_Mesh,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_x,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_y,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_mXSize,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_mYSize,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_mZSize,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWFC_Region_Statics::NewProp_mOffset,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AWFC_Region_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AWFC_Region>::IsAbstract,
@@ -130,15 +155,15 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Region() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AWFC_Region);
 	AWFC_Region::~AWFC_Region() {}
-	struct Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AWFC_Region, AWFC_Region::StaticClass, TEXT("AWFC_Region"), &Z_Registration_Info_UClass_AWFC_Region, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Region), 2874080926U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AWFC_Region, AWFC_Region::StaticClass, TEXT("AWFC_Region"), &Z_Registration_Info_UClass_AWFC_Region, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Region), 3477132801U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_1386127236(TEXT("/Script/MyProject"),
-		Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_samantha_shomo_Documents_repo_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_2174024314(TEXT("/Script/MyProject"),
+		Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Region_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
