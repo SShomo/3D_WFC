@@ -117,6 +117,7 @@ TSet<TSharedPtr<AWFC_Node>> AWFC_Region::GetNeighbors(FIntVector3 gridPosition)
 	return output;
 }
 
+//TODO: I'm guessing the issue is in *how* we call SpawnActor here, but I don't really know
 TSharedPtr<AWFC_Node> AWFC_Region::BuildNode(FIntVector3 gridPosition)
 {
 	UWorld* World = GetWorld();

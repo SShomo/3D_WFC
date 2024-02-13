@@ -15,6 +15,7 @@ class MYPROJECT_API AWFC_Node : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWFC_Node();
+	AWFC_Node(FVector position);
 
 protected:
 	// Called when the game starts or when spawned
