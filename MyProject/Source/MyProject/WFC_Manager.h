@@ -30,6 +30,8 @@ protected:
 	int mYSize;
 	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
 	int mZSize;
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	int mOffset;
 
 	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
 	AWFC_Region* mWFCRegion;

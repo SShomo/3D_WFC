@@ -57,7 +57,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void SetRegionDimensions(int x, int y, int z);
+	void SetRegionDimensionsAndOffset(int x, int y, int z, int offset);
 
 	TSharedPtr<AWFC_Node> GetNodeAtPosition(FIntVector3 gridPosition);
 

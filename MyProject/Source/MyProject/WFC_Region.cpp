@@ -134,9 +134,9 @@ TSharedPtr<AWFC_Node> AWFC_Region::BuildNode(FIntVector3 gridPosition)
 	AWFC_Node* temp = World->SpawnActor<AWFC_Node>();
 	output = MakeShareable(temp);
 
-	temp->SetActorLocation(transform.GetLocation());
-	temp->SetActorRotation(transform.GetRotation());
+	temp->SetActorTransform(transform);
 	temp->SetGridPosition(gridPosition.X, gridPosition.Y, gridPosition.Z);
+
 	mNodes.Add(output);
 	return output;
 }
@@ -168,11 +168,12 @@ void AWFC_Region::Tick(float DeltaTime)
 
 }
 
-void AWFC_Region::SetRegionDimensions(int x, int y, int z)
+void AWFC_Region::SetRegionDimensionsAndOffset(int x, int y, int z, int offset)
 {
 	mXSize = x;
 	mYSize = y;
 	mZSize = z;
+	mOffset = offset;
 }
 
 TSharedPtr<AWFC_Node> AWFC_Region::GetNodeAtPosition(FIntVector3 gridPosition)
