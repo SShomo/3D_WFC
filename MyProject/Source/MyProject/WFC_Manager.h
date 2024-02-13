@@ -9,7 +9,7 @@
 #include "WFC_Manager.generated.h"
 
 
-UCLASS()
+UCLASS(ClassGroup = (Wave_Function_Collapse))
 class MYPROJECT_API AWFC_Manager : public AActor
 {
 	GENERATED_BODY()
@@ -24,10 +24,17 @@ protected:
 	virtual void BeginPlay() override;
 
 	//Member Variables
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
-	TSubclassOf<AWFC_Region> mWFCRegion;
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	int mXSize;
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	int mYSize;
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	int mZSize;
 
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseManager")
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
+	AWFC_Region* mWFCRegion;
+
+	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
 	TArray<TSubclassOf<AWFC_Tile>> mWFCTiles;
 
 public:	
@@ -35,6 +42,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void Collapse(AWFC_Region* region);
+	void Collapse(TSubclassOf<AWFC_Region> region);
 
 	UFUNCTION(BlueprintCallable)
 	void SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles);

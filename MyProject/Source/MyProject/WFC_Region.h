@@ -8,7 +8,7 @@
 #include "WFC_Tile.h"
 #include "WFC_Region.generated.h"
 
-UCLASS()
+UCLASS(ClassGroup=(Wave_Function_Collapse))
 class MYPROJECT_API AWFC_Region : public AActor
 {
 	GENERATED_BODY()
@@ -28,10 +28,16 @@ protected:
 	class UStaticMeshComponent* Mesh;
 
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
-	int x;
+	int mXSize;
 
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
-	int y;
+	int mYSize;
+
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
+	int mZSize;
+
+	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
+	int mOffset;
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNodes;
@@ -41,17 +47,27 @@ protected:
 	float GetLowestEntropyValue();
 	TSet<TSharedPtr<AWFC_Node>> GetLowestEntropyNodes();
 
-	void BuildNodes();
+	bool IsNodeBuilt(FIntVector3 gridPosition);
+	bool IsNodeInRegion(FIntVector3 gridPosition);
+	bool ShouldBuildNode(FIntVector3 gridPosition);
+	TSet<TSharedPtr<AWFC_Node>> GetNeighbors(FIntVector3 gridPosition);
+	TSharedPtr<AWFC_Node> BuildNode(FIntVector3 gridPosition);
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void SetRegionDimensions(int x, int y, int z);
+
+	TSharedPtr<AWFC_Node> GetNodeAtPosition(FIntVector3 gridPosition);
 
 	void Collapse();
 	void SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
 	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
 
 	void AddTile(TSharedPtr<AWFC_Tile> tile);
+
+	void BuildNodes();
 
 	bool IsCollapsed();
 };

@@ -7,7 +7,7 @@
 #include "WFC_Tile.h"
 #include "WFC_Node.generated.h"
 
-UCLASS()
+UCLASS(ClassGroup = (Wave_Function_Collapse))
 class MYPROJECT_API AWFC_Node : public AActor
 {
 	GENERATED_BODY()
@@ -33,15 +33,23 @@ protected:
 
 	TSet<TSharedPtr<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNeighbors;
+	
+	int mX;
+	int mY;
+	int mZ;
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void SetGridPosition(int x, int y, int z);
+	FIntVector3 GetGridPosition();
 	bool GetIsCollapsed();
 	float GetEntropy();
 	TSet<TSharedPtr<AWFC_Tile>> GetTiles();
 	void SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
+	void SetNeighbor(TSharedPtr<AWFC_Node> node);
+	void SetNeighbors(TSet<TSharedPtr<AWFC_Node>> nodes);
 	void Collapse();
 	void Propogate();
 };

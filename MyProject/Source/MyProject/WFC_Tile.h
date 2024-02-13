@@ -16,7 +16,7 @@ enum Direction
 	Back,
 };
 
-UCLASS()
+UCLASS(ClassGroup = (Wave_Function_Collapse))
 class MYPROJECT_API AWFC_Tile : public AActor
 {
 	GENERATED_BODY()

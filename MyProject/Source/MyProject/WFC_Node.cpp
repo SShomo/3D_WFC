@@ -45,6 +45,19 @@ void AWFC_Node::Tick(float DeltaTime)
 
 }
 
+void AWFC_Node::SetGridPosition(int x, int y, int z)
+{
+	mX = x;
+	mY = y;
+	mZ = z;
+}
+
+FIntVector3 AWFC_Node::GetGridPosition()
+{
+	FIntVector3 output(mX, mY, mZ);
+	return output;
+}
+
 bool AWFC_Node::GetIsCollapsed()
 {
 	return mIsCollapsed;
@@ -66,6 +79,16 @@ void AWFC_Node::SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
 	{
 		mTiles.Add(tile);
 	}
+}
+
+void AWFC_Node::SetNeighbor(TSharedPtr<AWFC_Node> node)
+{
+	mNeighbors.Add(node);
+}
+
+void AWFC_Node::SetNeighbors(TSet<TSharedPtr<AWFC_Node>> nodes)
+{
+	mNeighbors = nodes;
 }
 
 void AWFC_Node::Collapse()
