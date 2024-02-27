@@ -17,6 +17,7 @@ class MYPROJECT_API AWFC_Manager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWFC_Manager();
+	//~AWFC_Manager();
 
 protected:
 	//Member Functions
@@ -33,16 +34,16 @@ protected:
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
 	AWFC_Region* mWFCRegion;
 
-	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
-	TArray<TSubclassOf<AWFC_Tile>> mWFCTiles;
+	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
+	TSet<TSubclassOf<AWFC_Tile>> mWFCTiles;
+	TSet<TSharedRef<AWFC_Tile>> mSharableTiles;
+
+	TSet<TSharedRef<AWFC_Tile>> CreateTileSet(TSet<TSubclassOf<AWFC_Tile>> tiles);
+
+	
+	void Collapse(TSharedPtr<AWFC_Region> region);
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	void Collapse(AWFC_Region* region);
-	void Collapse(TSubclassOf<AWFC_Region> region);
-
-	UFUNCTION(BlueprintCallable)
-	void SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles);
 };

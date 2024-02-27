@@ -17,6 +17,24 @@ AWFC_Node::AWFC_Node()
 
 }
 
+//AWFC_Node::~AWFC_Node()
+//{
+//	for (auto& tile : mTiles)
+//	{
+//		if (IsValid(tile.Get()))
+//		{
+//			tile.Get()->Destroy();
+//		}
+//	}
+//	for (auto& node : mNeighbors)
+//	{
+//		if (IsValid(node.Get()))
+//		{
+//			node.Get()->Destroy();
+//		}
+//	}
+//}
+
 AWFC_Node::AWFC_Node(FVector position)
 {
 	RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
@@ -37,13 +55,13 @@ void AWFC_Node::BeginPlay()
 	
 }
 
-void AWFC_Node::ReduceToCompatibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
+void AWFC_Node::ReduceToCompatibleTiles(TSet<TSharedRef<AWFC_Tile>> tiles)
 {
 	for (auto& tile1 : tiles)
 	{
 		for (auto& tile2 : mTiles)
 		{
-			if (!tile1.Get()->HaveMatchingSocket(tile2)) //no matching socket, discard
+			if (!tile1.Get().HaveMatchingSocket(tile2)) //no matching socket, discard
 			{
 				mTiles.Remove(tile2);
 			}
@@ -81,22 +99,22 @@ float AWFC_Node::GetEntropy()
 	return mTiles.Num();
 }
 
-TSet<TSharedPtr<AWFC_Tile>> AWFC_Node::GetTiles()
+TSet<TSharedRef<AWFC_Tile>> AWFC_Node::GetTiles()
 {
 	return mTiles;
 }
 
-void AWFC_Node::SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles)
+void AWFC_Node::SetTiles(TSet<TSharedRef<AWFC_Tile>> tiles)
 {
 	mTiles = tiles;
 }
 
-void AWFC_Node::SetNeighbor(TSharedPtr<AWFC_Node> node)
+void AWFC_Node::SetNeighbor(TSharedRef<AWFC_Node> node)
 {
 	mNeighbors.Add(node);
 }
 
-void AWFC_Node::SetNeighbors(TSet<TSharedPtr<AWFC_Node>> nodes)
+void AWFC_Node::SetNeighbors(TSet<TSharedRef<AWFC_Node>> nodes)
 {
 	mNeighbors = nodes;
 }
@@ -107,32 +125,22 @@ void AWFC_Node::Collapse()
 
 	//TODO: Set WFC_Node Mesh to whatever element tileNum is
 	FSetElementId numID = numID.FromInteger(tileNum);
-	UStaticMesh* temp = mTiles[numID].Get()->GetMesh()->GetStaticMesh();
+	UStaticMesh* temp = mTiles[numID].Get().GetMesh()->GetStaticMesh();
 	Mesh->SetStaticMesh(temp);
 	mIsCollapsed = true;
 	return;
-}
-
-void AWFC_Node::RemoveSlack()
-{
-	TSet<TSharedPtr<AWFC_Node>> temp;
-	for (auto& node : mNeighbors)
-	{
-		if (node.Get() != NULL) temp.Add(node);
-	}
-	mNeighbors = temp;
 }
 
 void AWFC_Node::Propogate()
 {
 	for (auto& node : mNeighbors)
 	{
-		node.Get()->Propogate(this);
+		node.Get().Propogate(this);
 	}
 }
 
 void AWFC_Node::Propogate(AWFC_Node* collapsingNode)
 {
-	TSet<TSharedPtr<AWFC_Tile>> tile = collapsingNode->GetTiles();
+	TSet<TSharedRef<AWFC_Tile>> tile = collapsingNode->GetTiles();
 	this->ReduceToCompatibleTiles(tile);
 }

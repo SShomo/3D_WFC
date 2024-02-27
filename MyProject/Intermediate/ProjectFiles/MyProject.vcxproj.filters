@@ -42,6 +42,12 @@
     <ClInclude Include="..\..\Source\MyProject\MyProject.h">
       <Filter>Source\MyProject</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MyProject\WFCNodeFactory.cpp">
+      <Filter>Source\MyProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MyProject\WFCNodeFactory.h">
+      <Filter>Source\MyProject</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MyProject\WFC_Manager.cpp">
       <Filter>Source\MyProject</Filter>
     </ClCompile>

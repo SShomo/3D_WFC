@@ -10,22 +10,31 @@ AWFC_Manager::AWFC_Manager()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+//AWFC_Manager::~AWFC_Manager()
+//{
+//	if (IsValid(mWFCRegion))
+//	{
+//		mWFCRegion->Destroy();
+//	}
+//	for (auto& tile : mWFCTiles)
+//	{
+//		if (IsValid(tile.Get()))
+//		{
+//			delete tile.Get()->GetDefaultObject();
+//		}
+//	}
+//}
+
 // Called when the game starts or when spawned
 void AWFC_Manager::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	if (mWFCRegion)
-	{
-		mWFCRegion->SetRegionDimensionsAndOffset(mDimensions.X, mDimensions.Y, mDimensions.Z, mOffset);
-		mWFCRegion->BuildNodes();
-		SetTiles(mWFCTiles);
-		Collapse(mWFCRegion);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("RegionClass is nullptr"));
-	}
+	TSharedPtr<AWFC_Region> shareableRegion = MakeShareable(mWFCRegion);
+
+	mSharableTiles = CreateTileSet(mWFCTiles);
+	shareableRegion.Get()->Initialize(mDimensions, mOffset, mSharableTiles);
+	Collapse(shareableRegion);
 }
 
 // Called every frame
@@ -35,25 +44,17 @@ void AWFC_Manager::Tick(float DeltaTime)
 
 }
 
-void AWFC_Manager::Collapse(AWFC_Region* region)
+void AWFC_Manager::Collapse(TSharedPtr<AWFC_Region> region)
 {
-	region->Collapse();
+	region.Get()->Collapse();
 }
 
-void AWFC_Manager::Collapse(TSubclassOf<AWFC_Region> region)
+TSet<TSharedRef<AWFC_Tile>> AWFC_Manager::CreateTileSet(TSet<TSubclassOf<AWFC_Tile>> tiles)
 {
-	return;
-}
-
-void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
-{
-	TSet<TSharedPtr<AWFC_Tile>> tempSet;
-
+	TSet<TSharedRef<AWFC_Tile>> output;
 	for (auto& tile : tiles)
 	{
-		TSubclassOf<AWFC_Tile> tempTile = tile;
-		tempSet.Add(MakeShareable(tempTile.GetDefaultObject()));
+		output.Add(MakeShareable(tile.GetDefaultObject()));
 	}
-	mWFCRegion->SetPossibleTiles(tempSet);
+	return output;
 }
-

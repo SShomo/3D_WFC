@@ -5,6 +5,13 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_0.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_1.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Manager.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_2.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_3.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_4.uasset",
+				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/XR/9M2K557DHW4AIEKZ5TBOKS.uasset",
 				"C:/Users/william.box/Documents/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Manager.uasset",
 				"C:/Program Files/Epic Games/UE_5.3/Engine/Plugins/Experimental/WaveFunctionCollapse/Content/Core/WaveFunctionCollapseGridActor.uasset",
 				"C:/Users/samantha.shomo/Documents/repo/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Manager.uasset",
@@ -13,9 +20,6 @@
 				"C:/Users/samantha.shomo/Documents/repo/3D_WFC/MyProject/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/1/1O/UEOLKX7XGFCWXJ70466EXS.uasset",
 				"C:/Users/samantha.shomo/Documents/repo/3D_WFC/MyProject/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/XT/RV1ZWX30GBKXLWZM7P1CHH.uasset",
 				"C:/Users/samantha.shomo/Documents/repo/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Region.uasset",
-				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_0.uasset",
-				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/WFC_Tile_1.uasset",
-				"E:/Users/Will/Code/GitHub/3D_WFC/MyProject/Content/LevelPrototyping/WFC_Assets/Manager.uasset",
 				"C:/Users/samantha.shomo/Documents/Unreal Projects/MyProject/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
 			]
 		}

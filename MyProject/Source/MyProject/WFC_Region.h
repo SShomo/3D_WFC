@@ -16,6 +16,7 @@ class MYPROJECT_API AWFC_Region : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWFC_Region();
+	//~AWFC_Region();
 
 protected:
 	// Called when the game starts or when spawned
@@ -39,35 +40,33 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
 	int mOffset;
 
-	TSet<TSharedPtr<AWFC_Tile>> mTiles;
+	TSet<TSharedRef<AWFC_Tile>> mTiles;
 	TSet<TSharedPtr<AWFC_Node>> mNodes;
 
-	TSharedPtr<AWFC_Node> GetRandomNode(TSet<TSharedPtr<AWFC_Node>> nodes);
+	TSharedRef<AWFC_Node> GetRandomNode(TSet<TSharedRef<AWFC_Node>> nodes);
 
 	float GetLowestEntropyValue();
-	TSet<TSharedPtr<AWFC_Node>> GetLowestEntropyNodes();
+	TSet<TSharedRef<AWFC_Node>> GetLowestEntropyNodes();
 
 	bool IsNodeBuilt(FIntVector3 gridPosition);
 	bool IsNodeInRegion(FIntVector3 gridPosition);
 	bool ShouldBuildNode(FIntVector3 gridPosition);
-	TSet<TSharedPtr<AWFC_Node>> GetNeighbors(FIntVector3 gridPosition);
+	TSet<TSharedRef<AWFC_Node>> GetNeighbors(FIntVector3 gridPosition);
 	TSharedPtr<AWFC_Node> BuildNode(FIntVector3 gridPosition);
+	void SetRegionDimensionsAndOffset(int x, int y, int z, int offset);
+	void SetPossibleTiles(TSet<TSharedRef<AWFC_Tile>> tiles);
+	void BuildNodes();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void SetRegionDimensionsAndOffset(int x, int y, int z, int offset);
+	void Initialize(FIntVector3 dimensions, int offset, TSet<TSharedRef<AWFC_Tile>> tiles);
+
+	
 
 	TSharedPtr<AWFC_Node> GetNodeAtPosition(FIntVector3 gridPosition);
 
 	void Collapse();
-	void SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
-	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
-
-	void AddTile(TSharedPtr<AWFC_Tile> tile);
-
-	void BuildNodes();
-
 	bool IsCollapsed();
 };
