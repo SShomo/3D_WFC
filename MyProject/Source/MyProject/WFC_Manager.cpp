@@ -40,11 +40,6 @@ void AWFC_Manager::Collapse(AWFC_Region* region)
 	region->Collapse();
 }
 
-void AWFC_Manager::Collapse(TSubclassOf<AWFC_Region> region)
-{
-	return;
-}
-
 void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 {
 	TSet<AWFC_Tile*> tempSet;

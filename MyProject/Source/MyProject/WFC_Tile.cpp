@@ -70,14 +70,38 @@ bool AWFC_Tile::HaveMatchingSocket(AWFC_Tile* tile)
 	return output;
 }
 
+bool AWFC_Tile::HaveMatchingSocket(Direction dir, AWFC_Tile* tile)
+{
+	bool output = false;
+	switch (dir)
+	{
+	case Direction::Up:
+	case Direction::Down:
+		output = mSockets[Direction::Down] & tile->GetSockets()[Direction::Up];
+		break;
+	case Direction::Left:
+	case Direction::Right:
+		output = mSockets[Direction::Left] & tile->GetSockets()[Direction::Right];
+		break;
+	case Direction::Front:
+	case Direction::Back:
+		output = mSockets[Direction::Front] & tile->GetSockets()[Direction::Back];
+		break;
+	default:
+		output = false;
+		break;
+	}
+	return output;
+}
+
 bool AWFC_Tile::Directionality(Direction first, Direction second)
 {
 	bool facingCorrectWay = false;
-	if ((first == Up && second == Down) || (second == Up && first == Down))
+	if ((first == Direction::Up && second == Direction::Down) || (second == Direction::Up && first == Direction::Down))
 		return true;
-	if ((first == Left && second == Right) || (second == Right && first == Left))
+	if ((first == Direction::Left && second == Direction::Right) || (second == Direction::Right && first == Direction::Left))
 		return true;
-	if ((first == Front && second == Back) || (second == Back && first == Front))
+	if ((first == Direction::Front && second == Direction::Back) || (second == Direction::Back && first == Direction::Front))
 		return true;
 	return false;
 }

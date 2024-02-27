@@ -24,11 +24,6 @@ void AWFC_Region::BeginPlay()
 	Super::BeginPlay();
 }
 
-void AWFC_Region::AddTile(AWFC_Tile* tile)
-{
-	mTiles.Add(tile);
-}
-
 AWFC_Node* AWFC_Region::GetRandomNode(TSet<AWFC_Node*> nodes)
 {
 	int randNum = FMath::RandRange(0, mNodes.Num() - 1);
@@ -36,7 +31,7 @@ AWFC_Node* AWFC_Region::GetRandomNode(TSet<AWFC_Node*> nodes)
 	return nodes[numID];
 }
 
-float AWFC_Region::GetLowestEntropyValue()
+float AWFC_Region::GetLowestEntropy()
 {
 	int lowestEntropy = -1;
 	for (auto& node : mNodes)
@@ -55,7 +50,7 @@ float AWFC_Region::GetLowestEntropyValue()
 
 TSet<AWFC_Node*> AWFC_Region::GetLowestEntropyNodes()
 {
-	float lowestEntropy = GetLowestEntropyValue();
+	float lowestEntropy = GetLowestEntropy();
 	TSet<AWFC_Node*> lowestEntropyNodes;
 	for (auto& node : mNodes)
 	{
@@ -81,9 +76,9 @@ bool AWFC_Region::IsNodeInRegion(FIntVector3 gridPosition)
 {
 	bool output = true;
 
-	output &= gridPosition.X <= mXSize;
-	output &= gridPosition.Y <= mYSize;
-	output &= gridPosition.Z <= mZSize;
+	output &= gridPosition.X <= mDimensions.X;
+	output &= gridPosition.Y <= mDimensions.Y;
+	output &= gridPosition.Z <= mDimensions.Z;
 
 	return output;
 }
@@ -93,7 +88,7 @@ bool AWFC_Region::ShouldBuildNode(FIntVector3 gridPosition)
 	return IsNodeInRegion(gridPosition) && !IsNodeBuilt(gridPosition);
 }
 
-TSet<AWFC_Node*> AWFC_Region::GetNeighbors(FIntVector3 gridPosition)
+TMap<Direction,AWFC_Node*> AWFC_Region::GetNeighbors(FIntVector3 gridPosition)
 {
 	FIntVector3 up(0, 1, 0);
 	FIntVector3 down(0, -1, 0);
@@ -102,14 +97,30 @@ TSet<AWFC_Node*> AWFC_Region::GetNeighbors(FIntVector3 gridPosition)
 	FIntVector3 forward(0, 0, 1);
 	FIntVector3 backward(0, 0, -1);
 
-	TSet<AWFC_Node*> output;
+	TMap<Direction,FIntVector3> directionVector;
 
-	output.Add(GetNodeAtPosition(gridPosition + up));
-	output.Add(GetNodeAtPosition(gridPosition + down));
-	output.Add(GetNodeAtPosition(gridPosition + left));
-	output.Add(GetNodeAtPosition(gridPosition + right));
-	output.Add(GetNodeAtPosition(gridPosition + forward));
-	output.Add(GetNodeAtPosition(gridPosition + backward));
+	directionVector.Add(Direction::Up,up);
+	directionVector.Add(Direction::Down,down);
+	directionVector.Add(Direction::Left,left);
+	directionVector.Add(Direction::Right,right);
+	directionVector.Add(Direction::Front,forward);
+	directionVector.Add(Direction::Back,backward);
+
+
+	TMap<Direction,AWFC_Node*> output;
+
+	for (auto& vector : directionVector)
+	{
+		AWFC_Node* temp = GetNodeAtPosition(gridPosition + vector.Value);
+		if (temp != NULL)
+		{
+			output.Add(vector.Key, temp);
+		}
+		else
+		{
+			continue;
+		}
+	}
 
 	return output;
 }
@@ -117,6 +128,7 @@ TSet<AWFC_Node*> AWFC_Region::GetNeighbors(FIntVector3 gridPosition)
 //TODO: I'm guessing the issue is in *how* we call SpawnActor here, but I don't really know
 AWFC_Node* AWFC_Region::BuildNode(FIntVector3 gridPosition)
 {
+	{UE_LOG(LogTemp, Warning, TEXT("Position: %s"), *gridPosition.ToString()); }
 	UWorld* World = GetWorld();
 	FTransform transform;
 	FVector position;
@@ -127,10 +139,16 @@ AWFC_Node* AWFC_Region::BuildNode(FIntVector3 gridPosition)
 	position.Z = mOffset * gridPosition.Z;
 
 	transform.SetLocation(position + this->GetActorTransform().GetLocation());
+	{UE_LOG(LogTemp, Warning, TEXT("z: %s"), *transform.ToString()); }
 
 	output = World->SpawnActor<AWFC_Node>();
+	
+	output->SetActorRotation(FQuat().Identity);
+	output->SetActorScale3D(FVector(1,1,1));
+
 	output->SetActorTransform(transform);
-	//temp->SetActorRelativeTransform(transform + this->GetActorTransform());
+	//output->SetActorRelativeTransform(transform + this->GetActorTransform());
+
 	output->SetGridPosition(gridPosition.X, gridPosition.Y, gridPosition.Z);
 
 	mNodes.Add(output);
@@ -139,20 +157,20 @@ AWFC_Node* AWFC_Region::BuildNode(FIntVector3 gridPosition)
 
 void AWFC_Region::BuildNodes()
 {
-	for (int i = 0; i < mXSize; i++)
+	for (int i = 0; i < mDimensions.X; i++)
 	{
-		for (int j = 0; j < mYSize; j++)
+		for (int j = 0; j < mDimensions.Y; j++)
 		{
-			for (int k = 0; k < mZSize; k++)
+			for (int k = 0; k < mDimensions.Z; k++)
 			{
-				BuildNode(FIntVector3(i, j, k));
+				FIntVector3 position(i, j, k);
+				BuildNode(position);
 			}
 		}
 	}
 	for (auto& node : mNodes)
 	{
 		node->SetNeighbors(GetNeighbors(node->GetGridPosition()));
-		node->RemoveSlack();
 	}
 	return;
 }
@@ -166,9 +184,9 @@ void AWFC_Region::Tick(float DeltaTime)
 
 void AWFC_Region::SetRegionDimensionsAndOffset(int x, int y, int z, int offset)
 {
-	mXSize = x;
-	mYSize = y;
-	mZSize = z;
+	mDimensions.X = x;
+	mDimensions.Y = y;
+	mDimensions.Z = z;
 	mOffset = offset;
 }
 
@@ -202,15 +220,6 @@ void AWFC_Region::SetPossibleTiles(TSet<AWFC_Tile*> tiles)
 		node->SetTiles(tiles);
 	}
 }
-
-void AWFC_Region::SetPossibleTiles(TArray<AWFC_Tile*> tiles)
-{
-	for (auto& tile : tiles)
-	{
-		AddTile(tile);
-	}
-}
-
 
 bool AWFC_Region::IsCollapsed()
 {

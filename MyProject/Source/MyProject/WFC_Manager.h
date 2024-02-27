@@ -19,10 +19,6 @@ public:
 	AWFC_Manager();
 
 protected:
-	//Member Functions
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 	//Member Variables
 	UPROPERTY(EditInstanceOnly, BlueprintReadOnly, Category = "WaveFunctionCollapseManager")
 	FIntVector mDimensions;
@@ -36,12 +32,14 @@ protected:
 	UPROPERTY(EditInstanceOnly, Category = "WaveFunctionCollapseManager")
 	TArray<TSubclassOf<AWFC_Tile>> mWFCTiles;
 
+	//Member Functions
+	virtual void BeginPlay() override;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	void Collapse(AWFC_Region* region);
-	void Collapse(TSubclassOf<AWFC_Region> region);
 
 	UFUNCTION(BlueprintCallable)
 	void SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles);

@@ -15,15 +15,8 @@ class MYPROJECT_API AWFC_Node : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AWFC_Node();
-	AWFC_Node(FVector position);
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-	void ReduceToCompatibleTiles(TSet<AWFC_Tile*> tiles);
-	void Propogate(AWFC_Node* collapsingNode);
-
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseNode")
 	class USceneComponent* RootScene;
 
@@ -35,11 +28,15 @@ protected:
 	UPROPERTY()
 	TSet<AWFC_Tile*> mTiles;
 	UPROPERTY()
-	TSet<AWFC_Node*> mNeighbors;
+	TMap<Direction,AWFC_Node*> mNeighbors;
 	
-	int mX;
-	int mY;
-	int mZ;
+	FIntVector3 mGridPosition;
+
+	virtual void BeginPlay() override;
+	void ReduceToCompatibleTiles(TSet<AWFC_Tile*> tiles);
+	void ReduceToCompatibleTiles(Direction dir, TSet<AWFC_Tile*> tiles);
+	void Propogate(Direction dir, AWFC_Node* collapsingNode);
+	void Propogate(AWFC_Node* collapsingNode);
 
 public:	
 	// Called every frame
@@ -51,9 +48,8 @@ public:
 	float GetEntropy();
 	TSet<AWFC_Tile*> GetTiles();
 	void SetTiles(TSet<AWFC_Tile*> tiles);
-	void SetNeighbor(AWFC_Node* node);
-	void SetNeighbors(TSet<AWFC_Node*> nodes);
+	void SetNeighbor(Direction dir,AWFC_Node* node);
+	void SetNeighbors(TMap<Direction, AWFC_Node*> nodes);
 	void Collapse();
-	void RemoveSlack();
 	void Propogate();
 };

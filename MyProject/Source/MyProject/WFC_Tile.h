@@ -6,14 +6,15 @@
 #include "GameFramework/Actor.h"
 #include "WFC_Tile.generated.h"
 
-enum Direction
+UENUM()
+enum class Direction
 {
-	Up,
-	Down,
-	Left,
-	Right,
-	Front,
-	Back,
+	Up		UMETA(DisplayName = "Up"),
+	Down	UMETA(DisplayName = "Down"),
+	Left	UMETA(DisplayName = "Left"),
+	Right	UMETA(DisplayName = "Right"),
+	Front	UMETA(DisplayName = "Front"),
+	Back	UMETA(DisplayName = "Back"),
 };
 
 UCLASS(ClassGroup = (Wave_Function_Collapse))
@@ -26,8 +27,7 @@ public:
 	AWFC_Tile();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseTile")
 	class USceneComponent* RootScene;
@@ -48,9 +48,10 @@ protected:
 	UPROPERTY(EditAnywhere)
 	int BackSocket;
 
-	void MapSockets();
-
 	TMap<Direction, int> mSockets;
+
+	virtual void BeginPlay() override;
+	void MapSockets();
 
 public:	
 	// Called every frame
@@ -61,6 +62,7 @@ public:
 	UStaticMeshComponent* GetMesh() { return Mesh; }
 
 	bool HaveMatchingSocket(AWFC_Tile* tile);
+	bool HaveMatchingSocket(Direction dir, AWFC_Tile* tile);
 
 	bool Directionality(Direction tile,Direction second);
 };

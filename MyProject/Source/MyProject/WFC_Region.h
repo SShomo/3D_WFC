@@ -18,42 +18,38 @@ public:
 	AWFC_Region();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
+	//Member Variables
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
 	class USceneComponent* RootScene;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "WaveFunctionCollapseRegion")
 	class UStaticMeshComponent* Mesh;
-
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
-	int mXSize;
-
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
-	int mYSize;
-
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
-	int mZSize;
-
-	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
+	UPROPERTY()
+	FIntVector mDimensions;
+	UPROPERTY()
 	int mOffset;
-
 	UPROPERTY()
 	TSet<AWFC_Tile*> mTiles;
 	UPROPERTY()
 	TSet<AWFC_Node*> mNodes;
 
+	//Functions
+	virtual void BeginPlay() override;
+
 	AWFC_Node* GetRandomNode(TSet<AWFC_Node*> nodes);
 
-	float GetLowestEntropyValue();
+	float GetLowestEntropy();
+
 	TSet<AWFC_Node*> GetLowestEntropyNodes();
 
-	bool IsNodeBuilt(FIntVector3 gridPosition);
-	bool IsNodeInRegion(FIntVector3 gridPosition);
-	bool ShouldBuildNode(FIntVector3 gridPosition);
-	TSet<AWFC_Node*> GetNeighbors(FIntVector3 gridPosition);
 	AWFC_Node* BuildNode(FIntVector3 gridPosition);
+
+	bool ShouldBuildNode(FIntVector3 gridPosition);
+
+	bool IsNodeBuilt(FIntVector3 gridPosition);
+
+	bool IsNodeInRegion(FIntVector3 gridPosition);
+
+	TMap<Direction,AWFC_Node*> GetNeighbors(FIntVector3 gridPosition);
 
 public:	
 	// Called every frame
@@ -64,10 +60,8 @@ public:
 	AWFC_Node* GetNodeAtPosition(FIntVector3 gridPosition);
 
 	void Collapse();
-	void SetPossibleTiles(TSet<AWFC_Tile*> tiles);
-	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
 
-	void AddTile(AWFC_Tile* tile);
+	void SetPossibleTiles(TSet<AWFC_Tile*> tiles);
 
 	void BuildNodes();
 
