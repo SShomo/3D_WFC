@@ -48,10 +48,10 @@ TMap<Direction, int> AWFC_Tile::GetSockets()
 	return mSockets;
 }
 
-bool AWFC_Tile::HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile)
+bool AWFC_Tile::HaveMatchingSocket(AWFC_Tile* tile)
 {
 	bool output = false;
-	TMap<Direction, int> tileSockets = tile.Get()->GetSockets();
+	TMap<Direction, int> tileSockets = tile->GetSockets();
 	for (auto& socket1 : tileSockets)
 	{
 		for (auto& socket2 : mSockets)

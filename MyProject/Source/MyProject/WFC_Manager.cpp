@@ -47,12 +47,11 @@ void AWFC_Manager::Collapse(TSubclassOf<AWFC_Region> region)
 
 void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 {
-	TSet<TSharedPtr<AWFC_Tile>> tempSet;
+	TSet<AWFC_Tile*> tempSet;
 
 	for (auto& tile : tiles)
 	{
-		TSubclassOf<AWFC_Tile> tempTile = tile;
-		tempSet.Add(MakeShareable(tempTile.GetDefaultObject()));
+		tempSet.Add(tile.GetDefaultObject());
 	}
 	mWFCRegion->SetPossibleTiles(tempSet);
 }

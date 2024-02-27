@@ -39,19 +39,21 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "WaveFunctionCollapseRegion")
 	int mOffset;
 
-	TSet<TSharedPtr<AWFC_Tile>> mTiles;
-	TSet<TSharedPtr<AWFC_Node>> mNodes;
+	UPROPERTY()
+	TSet<AWFC_Tile*> mTiles;
+	UPROPERTY()
+	TSet<AWFC_Node*> mNodes;
 
-	TSharedPtr<AWFC_Node> GetRandomNode(TSet<TSharedPtr<AWFC_Node>> nodes);
+	AWFC_Node* GetRandomNode(TSet<AWFC_Node*> nodes);
 
 	float GetLowestEntropyValue();
-	TSet<TSharedPtr<AWFC_Node>> GetLowestEntropyNodes();
+	TSet<AWFC_Node*> GetLowestEntropyNodes();
 
 	bool IsNodeBuilt(FIntVector3 gridPosition);
 	bool IsNodeInRegion(FIntVector3 gridPosition);
 	bool ShouldBuildNode(FIntVector3 gridPosition);
-	TSet<TSharedPtr<AWFC_Node>> GetNeighbors(FIntVector3 gridPosition);
-	TSharedPtr<AWFC_Node> BuildNode(FIntVector3 gridPosition);
+	TSet<AWFC_Node*> GetNeighbors(FIntVector3 gridPosition);
+	AWFC_Node* BuildNode(FIntVector3 gridPosition);
 
 public:	
 	// Called every frame
@@ -59,13 +61,13 @@ public:
 
 	void SetRegionDimensionsAndOffset(int x, int y, int z, int offset);
 
-	TSharedPtr<AWFC_Node> GetNodeAtPosition(FIntVector3 gridPosition);
+	AWFC_Node* GetNodeAtPosition(FIntVector3 gridPosition);
 
 	void Collapse();
-	void SetPossibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
+	void SetPossibleTiles(TSet<AWFC_Tile*> tiles);
 	void SetPossibleTiles(TArray<AWFC_Tile*> tiles);
 
-	void AddTile(TSharedPtr<AWFC_Tile> tile);
+	void AddTile(AWFC_Tile* tile);
 
 	void BuildNodes();
 

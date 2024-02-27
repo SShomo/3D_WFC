@@ -20,7 +20,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void ReduceToCompatibleTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
+	void ReduceToCompatibleTiles(TSet<AWFC_Tile*> tiles);
 	void Propogate(AWFC_Node* collapsingNode);
 
 
@@ -32,8 +32,10 @@ protected:
 
 	bool mIsCollapsed;
 
-	TSet<TSharedPtr<AWFC_Tile>> mTiles;
-	TSet<TSharedPtr<AWFC_Node>> mNeighbors;
+	UPROPERTY()
+	TSet<AWFC_Tile*> mTiles;
+	UPROPERTY()
+	TSet<AWFC_Node*> mNeighbors;
 	
 	int mX;
 	int mY;
@@ -47,10 +49,10 @@ public:
 	FIntVector3 GetGridPosition();
 	bool GetIsCollapsed();
 	float GetEntropy();
-	TSet<TSharedPtr<AWFC_Tile>> GetTiles();
-	void SetTiles(TSet<TSharedPtr<AWFC_Tile>> tiles);
-	void SetNeighbor(TSharedPtr<AWFC_Node> node);
-	void SetNeighbors(TSet<TSharedPtr<AWFC_Node>> nodes);
+	TSet<AWFC_Tile*> GetTiles();
+	void SetTiles(TSet<AWFC_Tile*> tiles);
+	void SetNeighbor(AWFC_Node* node);
+	void SetNeighbors(TSet<AWFC_Node*> nodes);
 	void Collapse();
 	void RemoveSlack();
 	void Propogate();

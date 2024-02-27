@@ -60,7 +60,7 @@ public:
 
 	UStaticMeshComponent* GetMesh() { return Mesh; }
 
-	bool HaveMatchingSocket(TSharedPtr<AWFC_Tile> tile);
+	bool HaveMatchingSocket(AWFC_Tile* tile);
 
 	bool Directionality(Direction tile,Direction second);
 };
