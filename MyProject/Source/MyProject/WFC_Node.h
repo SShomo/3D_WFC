@@ -33,10 +33,9 @@ protected:
 	FIntVector3 mGridPosition;
 
 	virtual void BeginPlay() override;
-	void ReduceToCompatibleTiles(TSet<AWFC_Tile*> tiles);
 	void ReduceToCompatibleTiles(Direction dir, TSet<AWFC_Tile*> tiles);
 	void Propogate(Direction dir, AWFC_Node* collapsingNode);
-	void Propogate(AWFC_Node* collapsingNode);
+	TSet<AWFC_Tile*> RemoveSlack();
 
 public:	
 	// Called every frame

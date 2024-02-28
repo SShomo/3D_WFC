@@ -1,11 +1,11 @@
-"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\UnrealEditor\Inc\MyProject\UHT\MyProject.init.gen.cpp"
-/FI"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
-/FI"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\Definitions.MyProject.h"
-/Yu"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
-/Fp"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h.pch"
-/Fo"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.init.gen.cpp.obj"
-/sourceDependencies "C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.init.gen.cpp.dep.json"
-@"C:\Users\samantha.shomo\Documents\repo\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.Shared.rsp"
+"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\UnrealEditor\Inc\MyProject\UHT\MyProject.init.gen.cpp"
+/FI"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
+/FI"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\Definitions.MyProject.h"
+/Yu"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h"
+/Fp"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\MyProjectEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h.pch"
+/Fo"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.init.gen.cpp.obj"
+/sourceDependencies "C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.init.gen.cpp.dep.json"
+@"C:\Users\william.box\Documents\GitHub\3D_WFC\MyProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\MyProject\MyProject.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

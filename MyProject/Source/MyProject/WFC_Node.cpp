@@ -24,31 +24,20 @@ void AWFC_Node::BeginPlay()
 	
 }
 
-void AWFC_Node::ReduceToCompatibleTiles(TSet<AWFC_Tile*> tiles)
-{
-	for (auto& tile1 : tiles)
-	{
-		for (auto& tile2 : mTiles)
-		{
-			if (!tile1->HaveMatchingSocket(tile2)) //no matching socket, discard
-			{
-				mTiles.Remove(tile2);
-			}
-		}
-	}
-}
 void AWFC_Node::ReduceToCompatibleTiles(Direction dir, TSet<AWFC_Tile*> tiles)
 {
+	TSet<AWFC_Tile*> temp;
 	for (auto& tile1 : tiles)
 	{
 		for (auto& tile2 : mTiles)
 		{
-			if (!tile1->HaveMatchingSocket(dir,tile2)) //no matching socket, discard
+			if (tile1->HaveMatchingSocket(dir,tile2)) //no matching socket, discard
 			{
-				mTiles.Remove(tile2);
+				temp.Add(tile2);
 			}
 		}
 	}
+	mTiles = temp;
 }
 
 // Called every frame
@@ -102,11 +91,20 @@ void AWFC_Node::SetNeighbors(TMap<Direction,AWFC_Node*> nodes)
 
 void AWFC_Node::Collapse()
 {
-	int tileNum = FMath::RandRange(0, mTiles.Num()-1);
+	if (!mTiles.IsEmpty())
+	{
+		int tileNum = FMath::RandRange(0, mTiles.Num() - 1);
 
-	FSetElementId numID = numID.FromInteger(tileNum);
-	UStaticMesh* temp = mTiles[numID]->GetMesh()->GetStaticMesh();
-	Mesh->SetStaticMesh(temp);
+		//Set mesh
+		FSetElementId numID = numID.FromInteger(tileNum);
+		UStaticMesh* temp = mTiles[numID]->GetMesh()->GetStaticMesh();
+		Mesh->SetStaticMesh(temp);
+
+		//Reduce TSet to just current mesh
+		TSet<AWFC_Tile*> tempTileSet;
+		tempTileSet.Add(mTiles.Get(numID));
+		mTiles = tempTileSet;
+	}
 	mIsCollapsed = true;
 	return;
 }
@@ -115,18 +113,29 @@ void AWFC_Node::Propogate()
 {
 	for (auto& node : mNeighbors)
 	{
-		node.Value->Propogate(this);
+		node.Value->Propogate(node.Key,this);
 	}
 }
 
 void AWFC_Node::Propogate(Direction dir, AWFC_Node* collapsingNode)
 {
-	TSet<AWFC_Tile*> tile = collapsingNode->GetTiles();
-	this->ReduceToCompatibleTiles(dir, tile);
+	if (!mIsCollapsed)
+	{
+		TSet<AWFC_Tile*> tile = collapsingNode->GetTiles();
+		this->ReduceToCompatibleTiles(dir, tile);
+		this->mTiles = RemoveSlack();
+	}
 }
 
-void AWFC_Node::Propogate(AWFC_Node* collapsingNode)
+TSet<AWFC_Tile*> AWFC_Node::RemoveSlack()
 {
-	TSet<AWFC_Tile*> tile = collapsingNode->GetTiles();
-	this->ReduceToCompatibleTiles(tile);
+	TSet<AWFC_Tile*> output;
+	for (auto& tile : mTiles)
+	{
+		if (tile != NULL)
+		{
+			output.Add(tile);
+		}
+	}
+	return output;
 }

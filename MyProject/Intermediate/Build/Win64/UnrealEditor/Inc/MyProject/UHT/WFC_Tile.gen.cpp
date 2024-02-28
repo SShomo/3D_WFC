@@ -14,8 +14,75 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Tile() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	MYPROJECT_API UClass* Z_Construct_UClass_AWFC_Tile();
 	MYPROJECT_API UClass* Z_Construct_UClass_AWFC_Tile_NoRegister();
+	MYPROJECT_API UEnum* Z_Construct_UEnum_MyProject_Direction();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 // End Cross Module References
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_Direction;
+	static UEnum* Direction_StaticEnum()
+	{
+		if (!Z_Registration_Info_UEnum_Direction.OuterSingleton)
+		{
+			Z_Registration_Info_UEnum_Direction.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_MyProject_Direction, (UObject*)Z_Construct_UPackage__Script_MyProject(), TEXT("Direction"));
+		}
+		return Z_Registration_Info_UEnum_Direction.OuterSingleton;
+	}
+	template<> MYPROJECT_API UEnum* StaticEnum<Direction>()
+	{
+		return Direction_StaticEnum();
+	}
+	struct Z_Construct_UEnum_MyProject_Direction_Statics
+	{
+		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FEnumParams EnumParams;
+	};
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_MyProject_Direction_Statics::Enumerators[] = {
+		{ "Direction::Up", (int64)Direction::Up },
+		{ "Direction::Down", (int64)Direction::Down },
+		{ "Direction::Left", (int64)Direction::Left },
+		{ "Direction::Right", (int64)Direction::Right },
+		{ "Direction::Front", (int64)Direction::Front },
+		{ "Direction::Back", (int64)Direction::Back },
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_MyProject_Direction_Statics::Enum_MetaDataParams[] = {
+		{ "Back.DisplayName", "Back" },
+		{ "Back.Name", "Direction::Back" },
+		{ "Down.DisplayName", "Down" },
+		{ "Down.Name", "Direction::Down" },
+		{ "Front.DisplayName", "Front" },
+		{ "Front.Name", "Direction::Front" },
+		{ "Left.DisplayName", "Left" },
+		{ "Left.Name", "Direction::Left" },
+		{ "ModuleRelativePath", "WFC_Tile.h" },
+		{ "Right.DisplayName", "Right" },
+		{ "Right.Name", "Direction::Right" },
+		{ "Up.DisplayName", "Up" },
+		{ "Up.Name", "Direction::Up" },
+	};
+#endif
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_MyProject_Direction_Statics::EnumParams = {
+		(UObject*(*)())Z_Construct_UPackage__Script_MyProject,
+		nullptr,
+		"Direction",
+		"Direction",
+		Z_Construct_UEnum_MyProject_Direction_Statics::Enumerators,
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		UE_ARRAY_COUNT(Z_Construct_UEnum_MyProject_Direction_Statics::Enumerators),
+		EEnumFlags::None,
+		(uint8)UEnum::ECppForm::EnumClass,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_MyProject_Direction_Statics::Enum_MetaDataParams), Z_Construct_UEnum_MyProject_Direction_Statics::Enum_MetaDataParams)
+	};
+	UEnum* Z_Construct_UEnum_MyProject_Direction()
+	{
+		if (!Z_Registration_Info_UEnum_Direction.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_Direction.InnerSingleton, Z_Construct_UEnum_MyProject_Direction_Statics::EnumParams);
+		}
+		return Z_Registration_Info_UEnum_Direction.InnerSingleton;
+	}
 	void AWFC_Tile::StaticRegisterNativesAWFC_Tile()
 	{
 	}
@@ -179,15 +246,19 @@ void EmptyLinkFunctionForGeneratedCodeWFC_Tile() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AWFC_Tile);
 	AWFC_Tile::~AWFC_Tile() {}
-	struct Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics
+	struct Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics
 	{
+		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::EnumInfo[] = {
+		{ Direction_StaticEnum, TEXT("Direction"), &Z_Registration_Info_UEnum_Direction, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3573020113U) },
+	};
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_AWFC_Tile, AWFC_Tile::StaticClass, TEXT("AWFC_Tile"), &Z_Registration_Info_UClass_AWFC_Tile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWFC_Tile), 3972524723U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_2608830136(TEXT("/Script/MyProject"),
-		Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_william_box_Documents_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_3225881685(TEXT("/Script/MyProject"),
+		Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::ClassInfo),
 		nullptr, 0,
-		nullptr, 0);
+		Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Will_Code_GitHub_3D_WFC_MyProject_Source_MyProject_WFC_Tile_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

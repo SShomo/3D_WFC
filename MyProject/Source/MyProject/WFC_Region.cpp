@@ -33,16 +33,17 @@ AWFC_Node* AWFC_Region::GetRandomNode(TSet<AWFC_Node*> nodes)
 
 float AWFC_Region::GetLowestEntropy()
 {
-	int lowestEntropy = -1;
+	int lowestEntropy = mTiles.Num();
+	int runningEntropy = 0;
 	for (auto& node : mNodes)
 	{
-		if (lowestEntropy == -1)
+		if (!node->GetIsCollapsed())
 		{
-			lowestEntropy = node->GetEntropy();
-		}
-		if (node->GetEntropy() < lowestEntropy)
-		{
-			lowestEntropy = node->GetEntropy();
+			runningEntropy = node->GetEntropy();
+			if (runningEntropy < lowestEntropy)
+			{
+				lowestEntropy = runningEntropy;
+			}
 		}
 	}
 	return lowestEntropy;
