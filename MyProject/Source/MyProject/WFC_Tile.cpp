@@ -18,6 +18,28 @@ AWFC_Tile::AWFC_Tile()
 	MapSockets();
 }
 
+AWFC_Tile::AWFC_Tile(AWFC_Tile& original)
+{
+	CopyMembers(original);
+}
+
+void AWFC_Tile::CopyMembers(const AWFC_Tile& original)
+{
+	RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
+	RootComponent = RootScene;
+	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+	Mesh->SetupAttachment(RootComponent);
+	Mesh->SetStaticMesh(original.Mesh->GetStaticMesh());
+	mRotation = original.mRotation;
+	UpSocket = original.UpSocket;
+	DownSocket = original.DownSocket;
+	LeftSocket = original.LeftSocket;
+	RightSocket = original.RightSocket;
+	FrontSocket = original.FrontSocket;
+	BackSocket = original.BackSocket;
+	mSockets = original.mSockets;
+}
+
 // Called when the game starts or when spawned
 void AWFC_Tile::BeginPlay()
 {
@@ -43,9 +65,65 @@ void AWFC_Tile::Tick(float DeltaTime)
 
 }
 
+TSet<AWFC_Tile*> AWFC_Tile::GetAllVarients()
+{
+	return GetRotations();
+}
+
 TMap<Direction, int> AWFC_Tile::GetSockets()
 {
 	return mSockets;
+}
+
+void AWFC_Tile::SetSockets(TMap<Direction, int> sockets)
+{
+	mSockets = sockets;
+}
+
+TSet<AWFC_Tile*> AWFC_Tile::GetRotations()
+{
+	TSet<AWFC_Tile*> output;
+	
+	for (int i = 0; i < 4; i++)
+	{
+		//Create new tile that's a copy of this one.
+		AWFC_Tile* temp = new AWFC_Tile(this);
+		//Create rotation for new tile and set the new tile's sockets
+		temp->SetRotation(i);
+		temp->RotateSockets(i);
+		//Add tile with rotation to output
+		output.Add(temp);
+	}
+	
+
+	return output;
+}
+
+void AWFC_Tile::RotateSockets(int rotation)
+{
+	if (rotation > 0)
+	{
+		TPair<Direction, int> temp;
+		temp.Key = Direction::Front;
+
+		temp.Value = mSockets[Direction::Front];
+		mSockets[Direction::Front] = mSockets[Direction::Right];
+		mSockets[Direction::Right] = mSockets[Direction::Back];
+		mSockets[Direction::Back] = mSockets[Direction::Left];
+		mSockets[Direction::Left] = temp.Value;
+
+		RotateSockets(rotation - 1);
+	}
+}
+
+int AWFC_Tile::GetRotation()
+{
+	return mRotation;
+}
+
+void AWFC_Tile::SetRotation(int rotation)
+{
+	mRotation = rotation;
 }
 
 bool AWFC_Tile::HaveMatchingSocket(AWFC_Tile* tile)

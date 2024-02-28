@@ -46,7 +46,11 @@ void AWFC_Manager::SetTiles(TArray<TSubclassOf<AWFC_Tile>> tiles)
 
 	for (auto& tile : tiles)
 	{
-		tempSet.Add(tile.GetDefaultObject());
+		TSet<AWFC_Tile*> varientSet = tile.GetDefaultObject()->GetAllVarients();
+		for (auto& varient : varientSet)
+		{
+			tempSet.Add(varient);
+		}
 	}
 	mWFCRegion->SetPossibleTiles(tempSet);
 }

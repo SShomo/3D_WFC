@@ -91,6 +91,7 @@ void AWFC_Node::SetNeighbors(TMap<Direction,AWFC_Node*> nodes)
 
 void AWFC_Node::Collapse()
 {
+	float rotationInt = 0;
 	if (!mTiles.IsEmpty())
 	{
 		int tileNum = FMath::RandRange(0, mTiles.Num() - 1);
@@ -98,6 +99,7 @@ void AWFC_Node::Collapse()
 		//Set mesh
 		FSetElementId numID = numID.FromInteger(tileNum);
 		UStaticMesh* temp = mTiles[numID]->GetMesh()->GetStaticMesh();
+		rotationInt = mTiles[numID]->GetRotation();
 		Mesh->SetStaticMesh(temp);
 
 		//Reduce TSet to just current mesh
@@ -105,6 +107,10 @@ void AWFC_Node::Collapse()
 		tempTileSet.Add(mTiles.Get(numID));
 		mTiles = tempTileSet;
 	}
+	float pitch = rotationInt * 90;
+	FQuat rotation = FQuat(FRotator(pitch, 0, 0));
+	this->SetActorRotation(rotation);
+
 	mIsCollapsed = true;
 	return;
 }
